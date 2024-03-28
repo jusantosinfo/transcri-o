@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcrição de Áudio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      color: #ffffff; /* Cor padrão das fontes */
+    }
+
+    header {
+      background-color: #333333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .container {
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+      display: inline-block;
+      width: calc(33.33% - 20px); /* Calcula o tamanho de cada div */
+      vertical-align: top; /* Alinha as divs no topo */
+      box-sizing: border-box; /* Garante que a largura calculada inclua padding e borda */
+      background-color:#3b3b3b;
+      color:#fff
+    }
+
+    /* Estilos para os diferentes contrastes */
+    .high-contrast .container {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .black-and-white .container {
+      background-color: #fff;
+      color: #000;
+    }
+
+    button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #c7c7c7;
+  text-align: bold;
+  font-weight: bold; /* Adicionando negrito */
+}
+
+button:hover {
+  background-color: #f3f1f1;
+}
+
+
+    p {
+      margin-top: 10px;
+      color: #ffffff; /* Cor padrão das fontes */
+      text-align: justify;
+      padding: 40px;
+    }
+
+    footer {
+      background-color: #333333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Estilos para os botões de contraste */
+    #contrastButtons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Estilos para os diferentes contrastes */
+    .high-contrast body {
+      background-color: #000 !important;
+      color: #fff !important;
+    }
+
+    .black-and-white body {
+      background-color: #fff !important;
+      color: #000 !important;
+    }
+
+    .high-contrast p{
+      
+      color: #ffffff !important;
+    }
+
+    .high-contrast .container{
+      background-color: #363636 !important;
+      color: #ffffff !important;
+    }
+    .black-and-white .container{
+      background-color: #c2c2c2 !important;
+      color: #000 !important;
+    }
+    .black-and-white p{
+     
+      color: #000 !important;
+    }
+    .black-and-white button {
+      background-color: #838181 !important;
+      color: #000 !important;
+    }
+
+    .black-and-white button:hover {
+      background-color: #ebe6e6;
+    }
+    .bold-button {
+    
+  font-weight: bold;
+}
+#transcription { white-space: pre-wrap;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 70%;
+  max-width: 600px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.5;
+  color:#000;
+}
+
+.black-and-white #transcription {
+  background-color: #979797;
+  color: #000;
+}
+
+.high-contrast #transcription {
+  background-color: #464545;
+  color: #f5f4f4;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold; /* Adiciona negrito */
+    transition: color 0.3s ease; /* Adiciona transição suave na mudança de cor */
+  }
+
+  nav ul li a:hover{
+    color:#8f8f8f;
+  }
+
+  /* Estilizando o link ativo */
+  nav ul li a.active {
+    color: #ffcc00; /* Cor do link ativo */
+  }
+
+
+
+  </style>
+  <!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:xd_Signature msdt:dt="string"></mso:xd_Signature>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">SILVIA ROBERTA DE JESUS GARCIA</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">1600.00000000000</mso:Order>
+<mso:xd_ProgID msdt:dt="string"></mso:xd_ProgID>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">SILVIA ROBERTA DE JESUS GARCIA</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
+<mso:TemplateUrl msdt:dt="string"></mso:TemplateUrl>
+<mso:ReferenceId msdt:dt="string"></mso:ReferenceId>
+<mso:ContentTypeId msdt:dt="string">0x0101005BD3C23D586F5F4DBA70A337A69CF458</mso:ContentTypeId>
+<mso:TriggerFlowInfo msdt:dt="string"></mso:TriggerFlowInfo>
+<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
+<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+<header>
+  <h1>Transcrição de Áudio</h1>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Sobre</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div id="contrastButtons">
+  <button class="bold-button" onclick="changeContrast('black-and-white')">Contraste 1</button>
+  <button onclick="changeContrast('high-contrast')">Contraste 2</button>
+</div>
+
+<main>
+  <div class="container">
+    <h2>Importancia da Transcrição de Áudio</h2>
+    <img src="importancia.png" width="150px" alt="Imagem 1"><br><br><br>
+    <button onclick="toggleVisibility('descricao1')">Mostrar/Ocultar</button>
+    
+    <p id="descricao1" style="display:none;">
+      A transcrição de áudio desempenha um papel fundamental na promoção da acessibilidade digital, permitindo que pessoas com deficiência auditiva ou surdez tenham acesso ao conteúdo de áudio de forma equivalente. Ao fornecer transcrições precisas do conteúdo falado, as barreiras de comunicação são reduzidas, possibilitando uma participação mais inclusiva em uma variedade de contextos, como vídeos online, podcasts, conferências e material educacional. De acordo com a World Wide Web Consortium (W3C), a transcrição de áudio é uma prática recomendada para garantir a acessibilidade na web, contribuindo para a igualdade de oportunidades e o respeito à diversidade.
+    </p>
+  </div>
+
+  <div class="container">
+    <h2>Benefícios da Transcrição de Áudio</h2>
+    <img src="beneficios.png" width="145px" alt="Imagem 2"><br><br><br>
+    <button onclick="toggleVisibility('descricao2')">Mostrar/Ocultar</button>
+    
+    <p id="descricao2" style="display:none;">
+      A transcrição de áudio oferece uma série de benefícios significativos, especialmente no contexto da acessibilidade. Primeiramente, ela proporciona acesso a conteúdos auditivos para pessoas com deficiência auditiva, permitindo que elas tenham acesso a informações que, de outra forma, seriam inacessíveis. Além disso, a transcrição de áudio pode melhorar a compreensão e retenção de informações para uma variedade de públicos, incluindo estudantes, profissionais e indivíduos em geral. Isso possibilita uma maior disseminação e compreensão de conteúdos, promovendo inclusão e igualdade de acesso à informação.
+    </p>
+  </div>
+
+  <div class="container">
+    <h2>Softwares que utilizam inteligência Artificial</h2>
+    <img src="ia.png" width="150px"  alt="Imagem 3"><br><br><br>
+    <button onclick="toggleVisibility('descricao3')">Mostrar/Ocultar</button>
+    
+    <p id="descricao3" style="display:none;">
+      Entre eles, destacam-se o Google Cloud Speech-to-Text, que oferece uma API capaz de converter áudio em texto com alta precisão e suporte a vários idiomas, o Amazon Transcribe, que é um serviço da AWS com recursos avançados como identificação de falantes, e o Microsoft Azure Speech Services, que proporciona transcrição em tempo real e integração com outras soluções da Microsoft. Além desses, o IBM Watson Speech to Text oferece customização de modelos de linguagem e detecção de palavras-chave, enquanto o Otter.ai se destaca por sua rapidez e precisão na transcrição, além de recursos de colaboração. 
+
+    </p>
+  </div>
+  <center><button id="startButton">Iniciar Transcrição</button>
+  <div id="transcription"></div></center>
+</main>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer>
+
+  &copy; 2024 - Transcrição de Áudio na Acessibilidade - Desenvolvido por Julia de S. Santos.
+</footer>
+
+<script>
+  function changeContrast(contrast) {
+    document.documentElement.className = contrast;
+  }
+
+  function toggleVisibility(id) {
+    var element = document.getElementById(id);
+    if (element.style.display === "none") {
+      element.style.display = "block";
+    } else {
+      element.style.display = "none";
+    }
+  }
+  const transcription = document.getElementById('transcription');
+  const startButton = document.getElementById('startButton');
+
+  // Variáveis para controle do reconhecimento de fala
+  let recognizing = false; // Indica se o reconhecimento está ocorrendo
+  let finalTranscript = ''; // Armazena o texto final reconhecido
+
+  // Verifica se o navegador suporta a API de Reconhecimento de Fala
+  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  // Verifica se a API de Reconhecimento de Fala é suportada
+  if (window.SpeechRecognition) {
+    // Cria uma instância do reconhecimento de fala
+    var recognition = new SpeechRecognition();
+    // Configurações do reconhecimento de fala
+    recognition.continuous = true; // Reconhecimento contínuo
+    recognition.interimResults = true; // Resultados intermediários
+    recognition.lang = 'pt-BR'; // Define o idioma como Português- Brasil
+
+    // Evento acionado quando o reconhecimento de fala inicia
+    recognition.onstart = function() {
+      recognizing = true; // Define que o reconhecimento está ocorrendo
+      startButton.textContent = 'Parar Transcrição'; // Atualiza o texto do botão
+    };
+
+    // Evento acionado em caso de erro durante o reconhecimento
+    recognition.onerror = function(event) {
+      console.log('Erro de reconhecimento: ' + event.error); // Registra o erro no console
+    };
+
+    // Evento acionado quando o reconhecimento de fala termina
+    recognition.onend = function() {
+      recognizing = false; // Define que o reconhecimento não está mais ocorrendo
+      startButton.textContent = 'Iniciar Transcrição'; // Atualiza o texto do botão
+    };
+
+    // Evento acionado quando resultados de reconhecimento de fala estão disponíveis
+    recognition.onresult = function(event) {   
+      let interimTranscript = ''; // Variável para transcrição intermediária
+      // Itera sobre os resultados do reconhecimento
+      for (let i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          // Se a transcrição for final, adiciona ao texto final
+          finalTranscript += event.results[i][0].transcript;
+        } else {
+          // Caso contrário, é uma transcrição intermediária
+          interimTranscript += event.results[i][0].transcript;
+        }
+      }
+      // Exibe o texto reconhecido ao usuário
+      transcription.textContent = finalTranscript + interimTranscript;
+    };
+
+    // Adiciona evento de clique ao botão de início/parada da transcrição
+    startButton.addEventListener('click', function() {
+      if (recognizing) {
+        recognition.stop(); // Para o reconhecimento se já estiver ocorrendo
+        return;
+      }
+      // Se não estiver ocorrendo, limpa o texto e inicia o reconhecimento
+      finalTranscript = '';
+      transcription.textContent = '';
+      recognition.start();
+    }, false);
+
+  } else {
+    // Se a API não é suportada, esconde o botão e exibe uma mensagem
+    startButton.style.visibility = 'hidden';
+    transcription.textContent = 'Seu navegador não suporta a API de reconhecimento de fala.';
+  }
+</script>
+
+</body>
+</html>
